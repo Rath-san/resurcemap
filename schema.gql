@@ -1,0 +1,56 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  id: String!
+  firstName: String
+  lastName: String
+}
+
+type Marker {
+  id: ID!
+  name: String
+  nodeType: String
+  icon: String
+  latLng: [Float!]
+  createdAt: Date!
+  deletedAt: Date
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type Query {
+  author(id: String!): Author!
+  authors(firstName: String, lastName: String): [Author!]!
+  marker(id: String!): Marker!
+  markers(firstName: String, lastName: String, name: String, nodeType: String, icon: String, latLng: [Float!]): [Marker!]!
+}
+
+type Mutation {
+  createAuthor(newAuthorData: NewAuthorInput!): Author!
+  removeAuthor(id: String!): Boolean!
+  createMarker(newMarkerData: NewMarkerInput!): Marker!
+  updateMarker(updateMarkerData: UpdateMarkerInput!, id: String!): Marker!
+  removeMarker(id: String!): Marker!
+}
+
+input NewAuthorInput {
+  firstName: String!
+  lastName: String!
+}
+
+input NewMarkerInput {
+  name: String
+  nodeType: String
+  icon: String
+  latLng: [Float!]
+}
+
+input UpdateMarkerInput {
+  name: String
+  nodeType: String
+  icon: String
+  latLng: [Float!]
+}
